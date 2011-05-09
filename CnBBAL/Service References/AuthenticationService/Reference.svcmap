@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bb4f4263-e105-4097-a75b-8d45a1f4a498" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://www.cimweb.ca/services/twwservice.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="twwservice.disco" MetadataType="Disco" ID="493c6794-78d3-44e1-a444-5bae202b7995" SourceId="1" SourceUrl="http://www.cimweb.ca/services/twwservice.svc?disco" />
+    <MetadataFile FileName="twwservice.xsd" MetadataType="Schema" ID="177e1601-e394-4f9f-b9c2-973804ed5e16" SourceId="1" SourceUrl="http://www.cimweb.ca/services/twwservice.svc?xsd=xsd1" />
+    <MetadataFile FileName="twwservice1.xsd" MetadataType="Schema" ID="40c52026-8207-4759-b5a1-ef0929bb55aa" SourceId="1" SourceUrl="http://www.cimweb.ca/services/twwservice.svc?xsd=xsd0" />
+    <MetadataFile FileName="twwservice2.xsd" MetadataType="Schema" ID="e9e12a09-2d49-47d6-bcf6-9199277da68b" SourceId="1" SourceUrl="http://www.cimweb.ca/services/twwservice.svc?xsd=xsd2" />
+    <MetadataFile FileName="AuthService.wsdl" MetadataType="Wsdl" ID="9e124254-f3d3-47e0-9f1e-5531df1f6765" SourceId="1" SourceUrl="http://www.cimweb.ca/services/twwservice.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
