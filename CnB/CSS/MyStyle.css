@@ -8,3 +8,18 @@ table
 {
 	background-color: white;
 }
+
+.modalBackground
+{
+	background-color: Gray;
+	filter: alpha(opacity=60);
+	opacity: 0.60;
+}
+
+.ModalPopup
+{
+	background-color:transparent;
+	background-position:center;
+	padding:0;
+	border: none;
+}

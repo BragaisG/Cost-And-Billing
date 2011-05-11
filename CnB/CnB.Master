@@ -9,6 +9,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <div>
         <h1>Cost And Billing</h1>
     </div>
@@ -16,6 +18,10 @@
         <asp:ContentPlaceHolder ID="MainPannel" runat="server">
         
         </asp:ContentPlaceHolder>
+    </div>
+    <br />
+    <div>
+        <iframe src="TaskListWindow.aspx" width="100%" height="500px" />
     </div>
     </form>
 </body>

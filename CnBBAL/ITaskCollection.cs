@@ -5,8 +5,8 @@ using System.Text;
 
 namespace CnBBAL
 {
-    public interface IClientCollection : ICollection<IClient>
+    public interface ITaskCollection : IList<ITask>
     {
-        IClientCollection GetClients();
+        ITaskCollection GetTasks(int Month);
     }
 }

@@ -14,15 +14,21 @@ namespace CnBBAL.Entities
 
         public int TaskID { get; set; }
         public int ClientID { get; set; }
+        public string ClientName { get; set; }
         public string ProgramName { get; set; }
         public string ApplicationName { get; set; }
         public int TandimNumber { get; set; }
         public int RequestTypeID { get; set; }
+        public string RequestType { get; set; }
         public int WorkTypeID { get; set; }
+        public string WorkType { get; set; }
         public double HoursEstimate { get; set; }
         public double HoursActual { get; set; }
         public string Description { get; set; }
         public string Notes { get; set; }
+        public int EmployeeID { get; set; }
+        public string Employee { get; set; }
+        public DateTime DateTimeEntered { get; set; }
 
         private string _Error;
         public string Error
@@ -37,7 +43,7 @@ namespace CnBBAL.Entities
         public bool Save()
         {
             return CnBDAL.DBWorkerFactory.Instantiate().Save(ClientID, ProgramName, ApplicationName, TandimNumber,
-                RequestTypeID, WorkTypeID, HoursEstimate, HoursActual, Description, Notes, ref _Error);
+                RequestTypeID, WorkTypeID, HoursEstimate, HoursActual, Description, Notes, EmployeeID, ref _Error);
         }
 
         public bool Update()

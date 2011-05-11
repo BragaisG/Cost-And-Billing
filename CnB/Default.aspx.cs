@@ -19,12 +19,7 @@ namespace CnB
         {
             if (!IsPostBack)
             {
-                CnBBAL.AuthenticationService.EmployeeDetails empDetails =
-                    (CnBBAL.AuthenticationService.EmployeeDetails)Session["CurrentUser"];
-
-                int EmployeeID = empDetails.EmployeeID;
-
-                ddlClient.DataSource = CnBBAL.Factory.ClientCollectionFactory.Instantiate().GetClients(EmployeeID);
+                ddlClient.DataSource = CnBBAL.Factory.ClientCollectionFactory.Instantiate().GetClients();
                 ddlClient.DataValueField = "ClientID";
                 ddlClient.DataTextField = "ClientName";
                 ddlClient.DataBind();
@@ -44,33 +39,42 @@ namespace CnB
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            CnBBAL.ITask _Task = CnBBAL.Factory.TaskFactory.Instantiate();
-            _Task.ClientID = Convert.ToInt32(ddlClient.SelectedValue);
-            _Task.ProgramName = txtProgram.Text.Trim();
-            _Task.ApplicationName = txtApplication.Text.Trim();
-            _Task.TandimNumber = Convert.ToInt32(txtTandimNumber.Text.Trim());
-            _Task.RequestTypeID = Convert.ToInt32(ddlRequestType.SelectedValue);
-            _Task.WorkTypeID = Convert.ToInt32(ddlWorkType.SelectedValue);
-            _Task.HoursEstimate = Convert.ToDouble(txtHoursEstimate.Text.Trim());
-            _Task.HoursActual = Convert.ToDouble(txtHoursActual.Text.Trim());
-            _Task.Description = txtDescription.Text.Trim();
-            _Task.Notes = txtNotes.Text.Trim();
-
-            if (_Task.Save())
+            if (Session["CurrentUser"] != null)
             {
-                ddlClient.SelectedValue = "0";
-                txtProgram.Text = "";
-                txtApplication.Text = "";
-                txtTandimNumber.Text = "";
-                ddlRequestType.SelectedValue = "0";
-                ddlWorkType.SelectedValue = "0";
-                txtHoursEstimate.Text = "";
-                txtHoursActual.Text = "";
-                txtDescription.Text = "";
-                txtNotes.Text = "";
+                CnBBAL.AuthenticationService.EmployeeDetails emp =
+                    (CnBBAL.AuthenticationService.EmployeeDetails)Session["CurrentUser"];
+
+                CnBBAL.ITask _Task = CnBBAL.Factory.TaskFactory.Instantiate();
+                _Task.ClientID = Convert.ToInt32(ddlClient.SelectedValue);
+                _Task.ProgramName = txtProgram.Text.Trim();
+                _Task.ApplicationName = txtApplication.Text.Trim();
+                _Task.TandimNumber = Convert.ToInt32(txtTandimNumber.Text.Trim());
+                _Task.RequestTypeID = Convert.ToInt32(ddlRequestType.SelectedValue);
+                _Task.WorkTypeID = Convert.ToInt32(ddlWorkType.SelectedValue);
+                _Task.HoursEstimate = Convert.ToDouble(txtHoursEstimate.Text.Trim());
+                _Task.HoursActual = Convert.ToDouble(txtHoursActual.Text.Trim());
+                _Task.Description = txtDescription.Text.Trim();
+                _Task.Notes = txtNotes.Text.Trim();
+                _Task.EmployeeID = emp.EmployeeID;
+
+                if (_Task.Save())
+                {
+                    ddlClient.SelectedValue = "0";
+                    txtProgram.Text = "";
+                    txtApplication.Text = "";
+                    txtTandimNumber.Text = "";
+                    ddlRequestType.SelectedValue = "0";
+                    ddlWorkType.SelectedValue = "0";
+                    txtHoursEstimate.Text = "";
+                    txtHoursActual.Text = "";
+                    txtDescription.Text = "";
+                    txtNotes.Text = "";
+                }
+                else
+                    Response.Write(_Task.Error);
             }
             else
-                Response.Write(_Task.Error);
+                Response.Redirect("Login.aspx");
         }
     }
 }

@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 
 using System.Data;
+using System.Data.Common;
 
 namespace CnBDAL
 {
-    public interface ILookups
+    public interface ITasks
     {
-        DataSet GetClients();
-        DataSet GetRequestTypes();
-        DataSet GetWorkTypes();
+        DataSet GetTasks(int Month);
     }
 }

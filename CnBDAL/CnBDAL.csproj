@@ -50,9 +50,11 @@
   <ItemGroup>
     <Compile Include="Entities\DBWorker.cs" />
     <Compile Include="Entities\Lookups.cs" />
+    <Compile Include="Entities\Tasks.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="IDBWorker.cs" />
     <Compile Include="ILookups.cs" />
+    <Compile Include="ITasks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

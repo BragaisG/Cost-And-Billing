@@ -13,7 +13,7 @@ namespace CnBDAL.Entities
     {
         public bool Save(int ClientID, string ProgramName, string ApplicationName, int TandimNumber,
             int RequestTypeID, int WorkTypeID, double HoursEstimate, double HoursActual,
-            string Description, string Notes, ref string ErrorMessage)
+            string Description, string Notes, int EmployeeID, ref string ErrorMessage)
         {
             try
             {
@@ -31,6 +31,7 @@ namespace CnBDAL.Entities
                 db.AddInParameter(dbCommand, "@HoursActual", DbType.Double, HoursActual);
                 db.AddInParameter(dbCommand, "@Description", DbType.String, Description);
                 db.AddInParameter(dbCommand, "@Notes", DbType.String, Notes);
+                db.AddInParameter(dbCommand, "@EnteredBy", DbType.Int32, EmployeeID);
 
                 int j = db.ExecuteNonQuery(dbCommand);
                 return true;

@@ -9,7 +9,7 @@ namespace CnBDAL
     {
         bool Save(int ClientID, string ProgramName, string ApplicationName, int TandimNumber,
             int RequestTypeID, int WorkTypeID, double HoursEstimate, double HoursActual,
-            string Description, string Notes, ref string ErrorMessage);
+            string Description, string Notes, int EmployeeID, ref string ErrorMessage);
 
         bool Update(int TaskID, int ClientID, string ProgramName, string ApplicationName,
             int TandimNumber, int RequestTypeID, int WorkTypeID, double HoursEstimate,

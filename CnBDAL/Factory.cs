@@ -22,4 +22,13 @@ namespace CnBDAL
             return new Entities.DBWorker();
         }
     }
+
+    public class TasksFactory
+    {
+        TasksFactory() { }
+        public static ITasks Instantiate()
+        {
+            return new Entities.Tasks();
+        }
+    }
 }

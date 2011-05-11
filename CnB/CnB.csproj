@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Ajax Control Kit\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="CnBBAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CnBBAL\bin\Debug\CnBBAL.dll</HintPath>
@@ -86,11 +90,23 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TaskListWindow.aspx.cs">
+      <DependentUpon>TaskListWindow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TaskListWindow.aspx.designer.cs">
+      <DependentUpon>TaskListWindow.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CnB.Master" />
     <Content Include="CSS\MyStyle.css" />
+    <Content Include="Images\001_06.ico" />
+    <Content Include="Images\001_29.ico" />
+    <Content Include="Images\001_38.ico" />
+    <Content Include="Images\loading40.gif" />
     <Content Include="Login.aspx" />
+    <Content Include="TaskListWindow.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

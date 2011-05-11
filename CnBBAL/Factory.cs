@@ -53,6 +53,15 @@ namespace CnBBAL.Factory
         }
     }
 
+    public class TaskCollectionFactory
+    {
+        TaskCollectionFactory() { }
+        public static ITaskCollection Instantiate()
+        {
+            return new Entities.TaskCollection();
+        }
+    }
+
     #endregion
 
     #region internal Factory Objects

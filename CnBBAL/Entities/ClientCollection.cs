@@ -12,11 +12,11 @@ namespace CnBBAL.Entities
     {
         #region Methods
 
-        public IClientCollection GetClients(int EmployeeID)
+        public IClientCollection GetClients()
         {
             IClientCollection clientCollection = Factory.ClientCollectionFactory.Instantiate();
 
-            DataSet ds = CnBDAL.LookupFactory.Instantiate().GetClients(EmployeeID);
+            DataSet ds = CnBDAL.LookupFactory.Instantiate().GetClients();
 
             if (ds.Tables.Count > 0)
                 if (ds.Tables[0].Rows.Count > 0)
@@ -26,7 +26,7 @@ namespace CnBBAL.Entities
                     {
                         _Client = Factory.ClientFactory.Instantiate();
                         _Client.ClientID = Convert.ToInt32(dr["ClientID"].ToString());
-                        _Client.ClientName = dr["Client"].ToString().Trim();
+                        _Client.ClientName = dr["ClientName"].ToString().Trim();
 
                         clientCollection.Add(_Client);
                     }

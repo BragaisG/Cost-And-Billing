@@ -61,6 +61,7 @@
     <Compile Include="Entities\RequestType.cs" />
     <Compile Include="Entities\RequestTypeCollection.cs" />
     <Compile Include="Entities\Task.cs" />
+    <Compile Include="Entities\TaskCollection.cs" />
     <Compile Include="Entities\WorkType.cs" />
     <Compile Include="Entities\WorkTypeCollection.cs" />
     <Compile Include="Factory.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="IRequestType.cs" />
     <Compile Include="IRequestTypeCollection.cs" />
     <Compile Include="ITask.cs" />
+    <Compile Include="ITaskCollection.cs" />
     <Compile Include="IWorkType.cs" />
     <Compile Include="IWorkTypeCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

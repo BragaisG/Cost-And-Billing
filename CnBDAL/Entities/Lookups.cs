@@ -11,16 +11,12 @@ namespace CnBDAL.Entities
 {
     internal class Lookups : ILookups
     {
-        public DataSet GetClients(int EmployeeID)
+        public DataSet GetClients()
         {
-            string SqlCommand = "dbo.pr_Brain_Lkp_Client";
+            string SqlCommand = "dbo.tbl_CnB_GetClients";
 
-            Database db = DatabaseFactory.CreateDatabase("DB02.Adonis");
+            Database db = DatabaseFactory.CreateDatabase("Sandbox1.DevelopmentDB");
             DbCommand dbCommand = db.GetStoredProcCommand(SqlCommand);
-
-            db.AddInParameter(dbCommand, "@EmployeeID", DbType.Int32, EmployeeID);
-            db.AddInParameter(dbCommand, "@HideFromListID", DbType.Int32, 0);
-            db.AddInParameter(dbCommand, "@CompanySiteID", DbType.Int32, 0);
 
             return db.ExecuteDataSet(dbCommand);
         }
