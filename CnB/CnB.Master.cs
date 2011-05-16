@@ -17,7 +17,31 @@ namespace CnB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                if (Session["CurrentUser"] == null)
+                {
+                    lblWelcome.Text = "Guest!";
+                    lbtnLogout.Visible = false;
+                }
+                else
+                {
+                    CnBBAL.AuthenticationService.EmployeeDetails emp =
+                        (CnBBAL.AuthenticationService.EmployeeDetails)Session["CurrentUser"];
+
+                    lblWelcome.Text = emp.FirstName + " " + emp.LastName + "!";
+                    lbtnLogout.Visible = true;
+                }
+            }
+        }
+
+        protected void lbtnLogout_Click(object sender, EventArgs e)
+        {
+            if (Session["CurrentUser"] != null)
+            {
+                Session.Clear();
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }

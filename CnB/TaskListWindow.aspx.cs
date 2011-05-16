@@ -65,25 +65,28 @@ namespace CnB
 
         protected void UpdateTask(object sender, System.Web.UI.ImageClickEventArgs e)
         {
-            CnBBAL.ITask _Task = CnBBAL.Factory.TaskFactory.Instantiate();
-            _Task.TaskID = Convert.ToInt32(hdnTaskID.Value);
-            _Task.ClientID = Convert.ToInt32(ddlClient.SelectedValue);
-            _Task.ProgramName = txtProgramName.Text.Trim();
-            _Task.ApplicationName = txtApplicationName.Text.Trim();
-            _Task.TandimNumber = Convert.ToInt32(txtTandimNumber.Text.Trim());
-            _Task.RequestTypeID = Convert.ToInt32(ddlRequestType.SelectedValue);
-            _Task.WorkTypeID = Convert.ToInt32(ddlWorkType.SelectedValue);
-            _Task.HoursEstimate = Convert.ToDouble(txtHoursEstimate.Text.Trim());
-            _Task.HoursActual = Convert.ToDouble(txtHoursActual.Text.Trim());
-            _Task.Description = txtDescription.Text.Trim();
-            _Task.Notes = txtNotes.Text.Trim();
-
-            if (!_Task.Update())
-                Response.Write(_Task.Error);
-            else
+            if (Page.IsValid)
             {
-                dgTasks.DataSource = CnBBAL.Factory.TaskCollectionFactory.Instantiate().GetTasks(System.DateTime.Now.Month);
-                dgTasks.DataBind();
+                CnBBAL.ITask _Task = CnBBAL.Factory.TaskFactory.Instantiate();
+                _Task.TaskID = Convert.ToInt32(hdnTaskID.Value);
+                _Task.ClientID = Convert.ToInt32(ddlClient.SelectedValue);
+                _Task.ProgramName = txtProgramName.Text.Trim();
+                _Task.ApplicationName = txtApplicationName.Text.Trim();
+                _Task.TandimNumber = Convert.ToInt32(txtTandimNumber.Text.Trim());
+                _Task.RequestTypeID = Convert.ToInt32(ddlRequestType.SelectedValue);
+                _Task.WorkTypeID = Convert.ToInt32(ddlWorkType.SelectedValue);
+                _Task.HoursEstimate = Convert.ToDouble(txtHoursEstimate.Text.Trim());
+                _Task.HoursActual = Convert.ToDouble(txtHoursActual.Text.Trim());
+                _Task.Description = txtDescription.Text.Trim();
+                _Task.Notes = txtNotes.Text.Trim();
+
+                if (!_Task.Update())
+                    Response.Write(_Task.Error);
+                else
+                {
+                    dgTasks.DataSource = CnBBAL.Factory.TaskCollectionFactory.Instantiate().GetTasks(System.DateTime.Now.Month);
+                    dgTasks.DataBind();
+                }
             }
         }
 
@@ -101,5 +104,31 @@ namespace CnB
             else
                 return false;
         }
+
+        #region Custom Validation Codes
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (ddlClient.SelectedIndex > 0)
+                args.IsValid = true;
+            else
+                args.IsValid = false;
+        }
+
+        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (ddlRequestType.SelectedIndex > 0)
+                args.IsValid = true;
+            else
+                args.IsValid = false;
+        }
+
+        protected void CustomValidator3_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (ddlWorkType.SelectedIndex > 0)
+                args.IsValid = true;
+            else
+                args.IsValid = false;
+        }
+        #endregion
     }
 }

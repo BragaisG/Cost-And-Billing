@@ -14,7 +14,7 @@
                     style="border-collapse:collapse;">
                     <tr>
                         <td>
-                            <table border="0" cellpadding="0">
+                            <table border="0" cellpadding="2">
                                 <tr>
                                     <td align="center" colspan="2">
                                         Log In</td>
@@ -25,9 +25,9 @@
                                         Name:</asp:Label>
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="UserName" runat="server" Width="90%"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" 
-                                            ControlToValidate="UserName" ErrorMessage="User Name is required." 
+                                            ControlToValidate="UserName" Display="Dynamic" ErrorMessage="User Name is required." 
                                             ToolTip="User Name is required." ValidationGroup="Login">*</asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
@@ -36,9 +36,9 @@
                                         <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
+                                        <asp:TextBox ID="Password" runat="server" TextMode="Password" Width="90%"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" 
-                                            ControlToValidate="Password" ErrorMessage="Password is required." 
+                                            ControlToValidate="Password" Display="Dynamic" ErrorMessage="Password is required." 
                                             ToolTip="Password is required." ValidationGroup="Login">*</asp:RequiredFieldValidator>
                                     </td>
                                 </tr>

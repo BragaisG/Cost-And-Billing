@@ -12,8 +12,17 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <div>
-        <h1>Cost And Billing</h1>
+        <table width="100%">
+            <tr>
+                <td rowspan="3"><h1>Cost And Billing</h1></td><td><br /></td>
+            </tr>
+            <tr><td valign="bottom" align="right">Welcome back <asp:Label ID="lblWelcome" runat="server" /></td></tr>
+            <tr><td valign="top" align="right">
+                <asp:LinkButton Text="Logout" runat="server" ID="lbtnLogout" onclick="lbtnLogout_Click" />
+            </td></tr>
+        </table>
     </div>
+    <br />
     <div>
         <asp:ContentPlaceHolder ID="MainPannel" runat="server">
         

@@ -34,8 +34,11 @@
                     <asp:BoundColumn DataField="ApplicationName" HeaderText="Application Name" >
                         <ItemStyle HorizontalAlign="Center" Width="200px" Font-Names="Calibri" />
                     </asp:BoundColumn>
-                    <asp:BoundColumn DataField="TandimNumber" HeaderText="Tandim/Ticket Number">
+                    <asp:BoundColumn DataField="Description" HeaderText="Description">
                         <ItemStyle HorizontalAlign="Center" Width="200px" Font-Names="Calibri" />
+                    </asp:BoundColumn>
+                    <asp:BoundColumn DataField="TandimNumber" HeaderText="Tandim/Ticket Number" Visible="false">
+                        <ItemStyle HorizontalAlign="Center" Width="0px" Font-Names="Calibri" />
                     </asp:BoundColumn>
                     <asp:BoundColumn DataField="RequestTypeID" HeaderText="RequestTypeID" Visible="false">
                         <ItemStyle HorizontalAlign="Center" Width="0px" Font-Names="Calibri" />
@@ -55,11 +58,8 @@
                     <asp:BoundColumn DataField="HoursActual" HeaderText="Actual Hours">
                         <ItemStyle HorizontalAlign="Center" Width="130px" Font-Names="Calibri" />
                     </asp:BoundColumn>
-                    <asp:BoundColumn DataField="Description" HeaderText="Description">
-                        <ItemStyle HorizontalAlign="Center" Width="200px" Font-Names="Calibri" />
-                    </asp:BoundColumn>
-                    <asp:BoundColumn DataField="Notes" HeaderText="Notes">
-                        <ItemStyle HorizontalAlign="Center" Width="200px" Font-Names="Calibri" />
+                    <asp:BoundColumn DataField="Notes" HeaderText="Notes" Visible="false">
+                        <ItemStyle HorizontalAlign="Center" Width="0px" Font-Names="Calibri" />
                     </asp:BoundColumn>
                     <asp:BoundColumn DataField="EmployeeID" HeaderText="EmployeeID" Visible="false">
                         <ItemStyle HorizontalAlign="Center" Width="0px" Font-Names="Calibri" />
@@ -87,9 +87,15 @@
                     </tr>
                     <tr><td colspan="4"><hr /></td></tr>
                     <tr>
-                        <td>Client Name:</td>
+                        <td>Client Name:<asp:CustomValidator ID="CustomValidator1" runat="server" 
+                                ControlToValidate="ddlClient" Display="Dynamic" ErrorMessage="*" 
+                                onservervalidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
+                        </td>
                         <td><asp:DropDownList ID="ddlClient" runat="server" /></td>
-                        <td>Program Name:</td>
+                        <td>Program Name:<asp:RequiredFieldValidator ID="RequiredFieldValidator1" 
+                                runat="server" ControlToValidate="txtProgramName" Display="Dynamic" 
+                                ErrorMessage="*"></asp:RequiredFieldValidator>
+                        </td>
                         <td><asp:TextBox ID="txtProgramName" runat="server" /></td>
                     </tr>
                     <tr>
@@ -99,19 +105,39 @@
                         <td><asp:TextBox ID="txtTandimNumber" runat="server" /></td>
                     </tr>
                     <tr>
-                        <td>Request Type:</td>
+                        <td>Request Type:<asp:CustomValidator ID="CustomValidator2" runat="server" 
+                                ControlToValidate="ddlRequestType" Display="Dynamic" ErrorMessage="*" 
+                                onservervalidate="CustomValidator2_ServerValidate"></asp:CustomValidator>
+                        </td>
                         <td><asp:DropDownList ID="ddlRequestType" runat="server" /></td>
-                        <td>Work Type:</td>
+                        <td>Work Type:<asp:CustomValidator ID="CustomValidator3" runat="server" 
+                                ControlToValidate="ddlWorkType" Display="Dynamic" ErrorMessage="*" 
+                                onservervalidate="CustomValidator3_ServerValidate"></asp:CustomValidator>
+                        </td>
                         <td><asp:DropDownList ID="ddlWorkType" runat="server" /></td>
                     </tr>
                     <tr>
-                        <td>Estimated Hours:</td>
+                        <td>Estimated Hours:<asp:RegularExpressionValidator 
+                                ID="RegularExpressionValidator1" runat="server" 
+                                ControlToValidate="txtHoursEstimate" Display="Dynamic" ErrorMessage="*" 
+                                ValidationExpression="[0-9]+\.[0-9]+"></asp:RegularExpressionValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                                ControlToValidate="txtHoursEstimate" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
+                        </td>
                         <td><asp:TextBox ID="txtHoursEstimate" runat="server" /></td>
-                        <td>Actual Hours:</td>
+                        <td>Actual Hours:<asp:RegularExpressionValidator ID="RegularExpressionValidator2" 
+                                runat="server" ControlToValidate="txtHoursActual" Display="Dynamic" 
+                                ErrorMessage="*" ValidationExpression="[0-9]+\.[0-9]+"></asp:RegularExpressionValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                                ControlToValidate="txtHoursActual" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
+                        </td>
                         <td><asp:TextBox ID="txtHoursActual" runat="server" /></td>
                     </tr>
                     <tr>
-                        <td>Description:</td>
+                        <td>Description:<asp:RequiredFieldValidator ID="RequiredFieldValidator4" 
+                                runat="server" ControlToValidate="txtDescription" Display="Dynamic" 
+                                ErrorMessage="*"></asp:RequiredFieldValidator>
+                        </td>
                         <td colspan="3">
                             <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Width="100%" />
                         </td>
