@@ -23,7 +23,7 @@
                     Reference Tandim<br />/SD Ticket
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"
                         ErrorMessage="*" ControlToValidate="txtTandimNumber" 
-                        ValidationExpression="[0-9]"></asp:RegularExpressionValidator>
+                        ValidationExpression="[0-9]+"></asp:RegularExpressionValidator>
                 </td>
                 <td><asp:TextBox ID="txtTandimNumber" runat="server" >0</asp:TextBox>
                 </td>
@@ -52,7 +52,7 @@
                 <td>Actual Hours Worked: 
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                         ControlToValidate="txtHoursActual" Display="Dynamic" ErrorMessage="*" 
-                        ValidationExpression="[0-9]+\.[0-9]+|[0-9]"></asp:RegularExpressionValidator>
+                        ValidationExpression="[0-9]+\.[0-9]+|[0-9]+"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                         ControlToValidate="txtHoursActual" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
                 </td>

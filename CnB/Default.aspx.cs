@@ -17,6 +17,9 @@ namespace CnB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["CurrentUser"] == null)
+                Response.Redirect("Login.aspx");
+
             if (!IsPostBack)
             {
                 ddlClient.DataSource = CnBBAL.Factory.ClientCollectionFactory.Instantiate().GetClients();

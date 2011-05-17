@@ -18,7 +18,7 @@
                  OnItemCommand="DisplayView">
                 <HeaderStyle BackColor="dodgerblue" Font-Bold="true" Font-Names="Calibri" HorizontalAlign="Center" />
                 <Columns>
-                    <asp:ButtonColumn Text="&lt;img src=&quot;/Images/001_38.ico&quot; border=&quot;0&quot; /&gt;" />
+                    <asp:ButtonColumn Text="&lt;img src=&quot;Images/001_38.ico&quot; border=&quot;0&quot; /&gt;" />
                     <asp:BoundColumn DataField="TaskID" HeaderText="TaskID" Visible="false">
                         <ItemStyle HorizontalAlign="Center" Width="0px" Font-Names="Calibri" />
                     </asp:BoundColumn>
