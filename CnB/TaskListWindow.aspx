@@ -37,7 +37,7 @@
                     <asp:BoundColumn DataField="Description" HeaderText="Description">
                         <ItemStyle HorizontalAlign="Center" Width="200px" Font-Names="Calibri" />
                     </asp:BoundColumn>
-                    <asp:BoundColumn DataField="TandimNumber" HeaderText="Tandim/Ticket Number" Visible="true">
+                    <asp:BoundColumn DataField="TandimNumber" HeaderText="Tandim/Ticket Number" Visible="false">
                         <ItemStyle HorizontalAlign="Center" Width="0px" Font-Names="Calibri" />
                     </asp:BoundColumn>
                     <asp:BoundColumn DataField="RequestTypeID" HeaderText="RequestTypeID" Visible="false">
