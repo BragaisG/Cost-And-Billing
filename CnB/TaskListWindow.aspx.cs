@@ -44,12 +44,12 @@ namespace CnB
             ddlClient.SelectedValue = e.Item.Cells[2].Text;
             txtProgramName.Text = e.Item.Cells[4].Text;
             txtApplicationName.Text = e.Item.Cells[5].Text;
-            txtTandimNumber.Text = e.Item.Cells[6].Text;
-            ddlRequestType.SelectedValue = e.Item.Cells[7].Text;
-            ddlWorkType.SelectedValue = e.Item.Cells[9].Text;
-            txtHoursEstimate.Text = e.Item.Cells[11].Text;
-            txtHoursActual.Text = e.Item.Cells[12].Text;
-            txtDescription.Text = e.Item.Cells[13].Text;
+            txtTandimNumber.Text = e.Item.Cells[7].Text;
+            ddlRequestType.SelectedValue = e.Item.Cells[8].Text;
+            ddlWorkType.SelectedValue = e.Item.Cells[10].Text;
+            txtHoursEstimate.Text = e.Item.Cells[12].Text;
+            txtHoursActual.Text = e.Item.Cells[13].Text;
+            txtDescription.Text = e.Item.Cells[6].Text;
             txtNotes.Text = e.Item.Cells[14].Text;
             lblEmployee.Text = e.Item.Cells[16].Text;
 
