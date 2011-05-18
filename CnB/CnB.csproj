@@ -104,7 +104,8 @@
     <Content Include="Images\001_06.ico" />
     <Content Include="Images\001_29.ico" />
     <Content Include="Images\001_38.ico" />
-    <Content Include="Images\loading40.gif" />
+    <Content Include="Images\ajaxloader.gif" />
+    <Content Include="Images\loading9.gif" />
     <Content Include="Login.aspx" />
     <Content Include="TaskListWindow.aspx" />
   </ItemGroup>

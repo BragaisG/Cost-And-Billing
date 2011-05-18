@@ -1,20 +1,47 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CnB.master.cs" Inherits="CnB.CnB" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title>Cost And Billing</title>
     <link rel="Stylesheet" type="text/css" href="CSS/MyStyle.css" />
+    
+    <script language="javascript" type="text/javascript">
+        function LoadGrid() {
+        if (document.getElementById) {  // DOM3 = IE5, NS6
+        document.getElementById('hidepage').style.visibility = 'hidden';
+        }
+        else {
+        if (document.layers) {  // Netscape 4
+        document.hidepage.visibility = 'hidden';
+        }
+        else {  // IE 4
+        document.all.hidepage.style.visibility = 'hidden';
+              }
+           }
+        }
+    </script>
+    
 </head>
-<body>
+<body onload="LoadGrid()">
     <form id="form1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
+    
     <div>
         <table width="100%">
             <tr>
-                <td rowspan="3"><h1>Cost And Billing</h1></td><td><br /></td>
+                <td rowspan="3"><h1>Cost And Billing</h1></td>
+                <td align="right">
+                    <div id="hidepage">
+                    <table cellpadding="3">
+                        <tr><td style="text-align:right; font-size:large; background-color:dodgerblue;"><img src="Images/loading9.gif" />Loading...</td></tr>
+                    </table>
+                    </div>
+                </td>
             </tr>
             <tr><td valign="bottom" align="right">Welcome back <asp:Label ID="lblWelcome" runat="server" /></td></tr>
             <tr><td valign="top" align="right">
@@ -22,7 +49,9 @@
             </td></tr>
         </table>
     </div>
+    
     <br />
+    
     <div>
         <asp:ContentPlaceHolder ID="MainPannel" runat="server">
         

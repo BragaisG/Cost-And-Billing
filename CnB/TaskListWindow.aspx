@@ -8,8 +8,31 @@
 <head runat="server">
     <title>Untitled Page</title>
     <link href="CSS/MyStyle.css" rel="Stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript">
+        function LoadGrid() {
+        if (document.getElementById) {  // DOM3 = IE5, NS6
+        document.getElementById('hidepage').style.visibility = 'hidden';
+        }
+        else {
+        if (document.layers) {  // Netscape 4
+        document.hidepage.visibility = 'hidden';
+        }
+        else {  // IE 4
+        document.all.hidepage.style.visibility = 'hidden';
+              }
+           }
+        }
+    </script>
 </head>
-<body>
+<body onload="LoadGrid()">
+
+    <div id="hidepage" style="position: absolute; background-color:Transparent; layer-background-color: #FFFFCC; height: 100%; width: 100%;"> 
+        <table width=100%>
+            <tr align="center"><td><img src="Images/ajaxloader.gif" runat="server" id="imgLoading" /></td></tr>
+            <tr><td style="text-align:center; font-size:large;">Please wait...</td></tr>
+        </table>
+    </div>
+
     <form id="form1" runat="server">
         <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
         </asp:ToolkitScriptManager>
@@ -101,7 +124,11 @@
                     <tr>
                         <td>Application Name:</td>
                         <td><asp:TextBox ID="txtApplicationName" runat="server" /></td>
-                        <td>Tandim/Ticket Name:</td>
+                        <td>Tandim/Ticket Name:<asp:RegularExpressionValidator 
+                                ID="RegularExpressionValidator3" runat="server" 
+                                ControlToValidate="txtTandimNumber" ErrorMessage="*" 
+                                ValidationExpression="[0-9]+"></asp:RegularExpressionValidator>
+                        </td>
                         <td><asp:TextBox ID="txtTandimNumber" runat="server" /></td>
                     </tr>
                     <tr>
@@ -120,14 +147,14 @@
                         <td>Estimated Hours:<asp:RegularExpressionValidator 
                                 ID="RegularExpressionValidator1" runat="server" 
                                 ControlToValidate="txtHoursEstimate" Display="Dynamic" ErrorMessage="*" 
-                                ValidationExpression="[0-9]+\.[0-9]+"></asp:RegularExpressionValidator>
+                                ValidationExpression="[0-9]+\.[0-9]+|[0-9]+"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                                 ControlToValidate="txtHoursEstimate" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
                         </td>
                         <td><asp:TextBox ID="txtHoursEstimate" runat="server" /></td>
                         <td>Actual Hours:<asp:RegularExpressionValidator ID="RegularExpressionValidator2" 
                                 runat="server" ControlToValidate="txtHoursActual" Display="Dynamic" 
-                                ErrorMessage="*" ValidationExpression="[0-9]+\.[0-9]+"></asp:RegularExpressionValidator>
+                                ErrorMessage="*" ValidationExpression="[0-9]+\.[0-9]+|[0-9]+"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                                 ControlToValidate="txtHoursActual" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
                         </td>
